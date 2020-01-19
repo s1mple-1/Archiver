@@ -92,12 +92,12 @@ public class ZipFileManager {
     }
 
     public void removeFiles(List<Path> pathList) throws Exception {
-        // Проверяем существует ли zip файл
+
         if (!Files.isRegularFile(zipFile)) {
             throw new WrongZipFileException();
         }
 
-        // Создаем временный файл
+
         Path tempZipFile = Files.createTempFile(null, null);
 
         try (ZipOutputStream zipOutputStream = new ZipOutputStream(Files.newOutputStream(tempZipFile))) {
